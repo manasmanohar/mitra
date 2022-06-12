@@ -1,7 +1,7 @@
 <template>
   <div
     id="BottomNav"
-    class="pr-4 pl-4 pb-2 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed inset-x-0 bottom-0 bg-grey shadow"
+    class="pr-4 pl-4 pb-2 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed inset-x-0 bottom-0 bg-white shadow"
   >
     <div class="botom-btn flex flex-col items-center pr-3">
       <svg

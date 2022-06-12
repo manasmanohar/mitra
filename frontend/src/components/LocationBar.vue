@@ -1,7 +1,7 @@
 <template>
   <div
     id="LocBar"
-    class="bg-indigo-500 items-center w-full p-3 flex justify-between align-bottom"
+    class="bg-indigo-500 w-full p-3 flex justify-between align-bottom"
   >
     <div class="location flex">
       <svg
@@ -25,7 +25,7 @@
       </svg>
       <span class="font-medium text-md">Kakkanad</span>
     </div>
-    <button class="rounded-full bg-green-300 p-2">Update Location</button>
+    <button class="rounded bg-green-300 p-2">Update Location</button>
   </div>
 </template>
 
