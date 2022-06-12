@@ -1,6 +1,7 @@
 <template>
   <div
-    class="bg-white-400 p-2 red flex items-center justify-between align-top fixed inset-x-0 top-0 z-10"
+    id="TopNav"
+    class="w-full p-2 h-20 flex items-center justify-between align-top top-0 static"
   >
     <img src="../assets/logo.png" class="h-12 w-12" alt="mitra_logo" />
   </div>
