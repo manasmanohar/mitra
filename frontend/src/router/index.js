@@ -5,13 +5,18 @@ import Login from '../views/LoginPage.vue'
 const routes = [
     {
         path: '/',
-        name: 'Login',
+        name: 'login',
         component: Login,
     },
     {
         path: '/home',
-        name: 'Home',
+        name: 'home',
         component: Home,
+    },
+    {
+        path: '/act',
+        name: 'act',
+        component: ActivityChoose,
     },
 ]
 

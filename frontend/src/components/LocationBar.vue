@@ -3,7 +3,7 @@
         id="LocBar"
         class="bg-white w-full p-3 flex justify-between align-bottom shadow-lg"
     >
-        <div class="location flex content-center">
+        <div class="location flex justify-center items-center content-center">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6 mr-2 content-center"

@@ -8,13 +8,14 @@
         </div>
 
         <router-view />
+        <BottomNav />
     </div>
 </template>
 
 <script>
     // import TopNav from './components/TopNav.vue'
     import LocationBar from '../components/LocationBar.vue'
-    // import BottomNav from './components/BottomNav.vue'
+    import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
     import PostCard from '../components/PostCard.vue'
 
@@ -24,6 +25,7 @@
             LocationBar,
             PostSelector,
             PostCard,
+            BottomNav,
         },
     }
 </script>
