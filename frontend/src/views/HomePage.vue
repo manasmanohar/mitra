@@ -3,8 +3,7 @@
         <LocationBar />
         <PostSelector />
         <div class="flex flex-col m-4">
-            <PostCard />
-            <PostCard />
+            <HomeBoard />
         </div>
 
         <router-view />
@@ -17,14 +16,15 @@
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
-    import PostCard from '../components/PostCard.vue'
+    // import PostCard from '../components/PostCard.vue'
+    import HomeBoard from '../components/HomeBoard.vue'
 
     export default {
         name: 'App',
         components: {
             LocationBar,
             PostSelector,
-            PostCard,
+            HomeBoard,
             BottomNav,
         },
     }

@@ -1,7 +1,15 @@
-<template></template>
+<template>
+    <PostCard />
+</template>
 
 <script>
-  export default {}
+    import PostCard from './PostCard.vue'
+    export default {
+        name: 'app',
+        components: {
+            PostCard,
+        },
+    }
 </script>
 
 <style></style>
