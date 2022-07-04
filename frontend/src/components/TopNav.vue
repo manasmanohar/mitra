@@ -5,7 +5,7 @@
     >
         <img
             src="../assets/logo3.jpg"
-            class="mx-auto h-12 w-36"
+            class="mx-auto h-20 w-49"
             alt="mitra_logo"
         />
     </div>

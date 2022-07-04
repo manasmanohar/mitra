@@ -3,7 +3,9 @@
         id="LocBar"
         class="bg-white w-full p-3 flex justify-between align-bottom shadow-lg"
     >
-        <div class="location flex justify-center items-center content-center">
+        <div
+            class="location mt-2 flex justify-center items-center content-center"
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6 mr-2 content-center"
@@ -23,16 +25,85 @@
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
             </svg>
-            <span class="font-medium text-md content-center">Kakkanad</span>
+            <span class="text-lg font-medium text-md content-center"
+                >Kakkanad</span
+            >
         </div>
-        <button class="rounded bg-green-300 p-2 content-center">
+        <button
+            class="rounded bg-green-300 p-2 content-center"
+            @click="locatorButtonPressed"
+        >
             Update Location
         </button>
     </div>
 </template>
 
 <script>
-    export default {}
+    import axios from 'axios'
+    export default {
+        data() {
+            return {
+                address: '',
+                error: '',
+                spinner: false,
+            }
+        },
+
+        methods: {
+            locatorButtonPressed() {
+                this.spinner = true
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            this.getAddressFrom(
+                                position.coords.latitude,
+                                position.coords.longitude
+                            )
+                        },
+                        (error) => {
+                            this.error =
+                                'Locator is unable to find your address. Please type your address manually.'
+                            this.spinner = false
+                            console.log(error.message)
+                        }
+                    )
+                } else {
+                    // this.error = error.message
+                    this.spinner = false
+                    console.log(
+                        'Your browser does not support geolocation API '
+                    )
+                }
+            },
+            getAddressFrom(lat, long) {
+                axios
+                    .get(
+                        'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+                            lat +
+                            ',' +
+                            long +
+                            '&key=AIzaSyDFa-BEmpT-I7Iz8uGZ7fJrVLGd5h_xthU'
+                    )
+                    .then((response) => {
+                        if (response.data.error_message) {
+                            this.error = response.data.error_message
+                            console.log(response.data.error_message)
+                        } else {
+                            this.address =
+                                response.data.results[0].formatted_address
+                            // console.log(response.data.results[0].formatted_address);
+                        }
+                        this.spinner = false
+                    })
+                    .catch((error) => {
+                        this.error = error.message
+                        this.spinner = false
+                        console.log(error.message)
+                    })
+            },
+        },
+    }
 </script>
 
 <style></style>

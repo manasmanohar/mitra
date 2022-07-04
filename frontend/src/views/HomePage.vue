@@ -17,15 +17,15 @@
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
     // import PostCard from '../components/PostCard.vue'
-    import HomeBoard from '../components/HomeBoard.vue'
+    import HomeBoard from '../components/HomeBoard'
 
     export default {
         name: 'App',
         components: {
             LocationBar,
             PostSelector,
-            HomeBoard,
             BottomNav,
+            HomeBoard,
         },
     }
 </script>
