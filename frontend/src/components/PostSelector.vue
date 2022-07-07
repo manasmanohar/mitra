@@ -1,14 +1,59 @@
 <template>
-    <div class="w-full flex flex-row justify-between p-3 shadow-lg">
-        <button class="rounded bg-white p-1 m-2 w-20 shadow-xl">Travel</button>
-        <button class="rounded bg-blue-400 p-1 m-2 w-20">Events</button>
-        <button class="rounded bg-blue-400 p-1 m-2 w-20">Help</button>
-        <button class="rounded bg-blue-400 p-1 m-2 w-20">Interest</button>
+    <div class="w-full flex flex-row justify-between p-3 shadow-lg m">
+        <button
+            v-bind:class="{
+                ' active': !clicked1,
+            }"
+            v-on:click="clicked1 = !clicked1"
+            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+        >
+            Travel
+        </button>
+
+        <button
+            v-bind:class="{
+                ' active': !clicked2,
+            }"
+            v-on:click="clicked2 = !clicked2"
+            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+        >
+            Events</button
+        ><button
+            v-bind:class="{
+                ' active': !clicked3,
+            }"
+            v-on:click="clicked3 = !clicked3"
+            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+        >
+            Help</button
+        ><button
+            v-bind:class="{
+                ' active': !clicked4,
+            }"
+            v-on:click="clicked4 = !clicked4"
+            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+        >
+            Interest
+        </button>
     </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+        data: function () {
+            return {
+                clicked1: 'false',
+                clicked2: 'false',
+                clicked3: 'false',
+                clicked4: 'false',
+            }
+        },
+    }
 </script>
 
-<style></style>
+<style>
+    .active {
+        background-color: #636ef1;
+        color: white !important;
+    }
+</style>
