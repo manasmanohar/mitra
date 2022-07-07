@@ -6,7 +6,7 @@
             </header>
 
             <h2 class="font-bold text-3xl mt-2">
-                Going to Aluva Railway Station
+                Going to Ernakulam South Railway
             </h2>
 
             <p class="mt-5">

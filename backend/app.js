@@ -21,6 +21,7 @@ const connection = mysql.createConnection({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
 })
+<<<<<<< Updated upstream
 
 connection.connect()
 
@@ -31,3 +32,5 @@ connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
 })
 
 connection.end()
+=======
+>>>>>>> Stashed changes

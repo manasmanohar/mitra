@@ -1,5 +1,12 @@
 const express = require('express')
-const router = express.Router()
+const app = express()
+
+const router = Router()
+
+const usersRoute = require('./routes/users')
+const postRoute = require('./routes/posts')
+
+app.use('/users', usersRoute)
 
 router.get('/', (req, res) => {
     res.send('testing')
