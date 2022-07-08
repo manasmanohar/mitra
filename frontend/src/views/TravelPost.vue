@@ -182,33 +182,36 @@
 
 <script>
     import axios from 'axios'
-        export default {
-            data() {
-                return {
-                    travelTitle: '',
-                    travelDestination: '',
-                    noParticipants: '',
-                    modeOfTravel: '',
-                    dateOfTravel: '',
-                    timeOfTravel: '',
-                }
+    export default {
+        data() {
+            return {
+                travelTitle: '',
+                travelDestination: '',
+                noParticipants: '',
+                modeOfTravel: '',
+                dateOfTravel: '',
+                timeOfTravel: '',
+            }
+        },
+        methods: {
+            registerPost() {
+                axios
+                    .post('/api/newtravel', {
+                        travelTitle: this.travelTitle,
+                        travelDestination: this.travelDestination,
+                        noParticipants: this.noParticipants,
+                        modeOfTravel: this.modeOfTravel,
+                        dateOfTravel: this.dateOfTravel,
+                        timeOfTravel: this.timeOfTravel,
+                    })
+                    // eslint-disable-next-line no-unused-vars
+                    .then((res) => {
+                        console.log('register done')
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             },
-            methods:{
-            registerPost(){
-            axios.
-            post("/api/newtravel",{
-            travelTitle: this.travelTitle,
-            travelDestination: this.travelDestination,
-            noParticipants: this.noParticipants,
-            modeOfTravel: this.modeOfTravel,
-            dateOfTravel: this.dateOfTravel,
-            timeOfTravel: this.timeOfTravel
-        })
-        .then(res=>{
-            console.log("register done")
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-        }
+        },
+    }
 </script>
