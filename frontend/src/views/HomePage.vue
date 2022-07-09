@@ -12,7 +12,6 @@
 </template>
 
 <script>
-    // import TopNav from './components/TopNav.vue'
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
