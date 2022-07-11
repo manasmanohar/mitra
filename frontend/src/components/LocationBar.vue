@@ -25,9 +25,9 @@
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
             </svg>
-            <span class="text-lg font-medium text-md content-center"
-                >Kakkanad</span
-            >
+            <span class="text-lg font-medium text-md content-center">{{
+                address
+            }}</span>
         </div>
         <button
             class="rounded bg-green-300 p-2 content-center"
@@ -91,8 +91,11 @@
                             console.log(response.data.error_message)
                         } else {
                             this.address =
-                                response.data.results[0].formatted_address
-                            // console.log(response.data.results[0].formatted_address);
+                                response.data.results[0].address_components[1].short_name
+                            console.log(
+                                response.data.results[0].address_components[1]
+                                    .short_name
+                            )
                         }
                         this.spinner = false
                     })

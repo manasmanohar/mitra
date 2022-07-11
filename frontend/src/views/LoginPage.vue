@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    // import TopNav from '../src/components/TopNav.vue'
+    import TopNav from '../src/components/TopNav'
     export default {}
 </script>
 
