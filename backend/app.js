@@ -14,6 +14,7 @@ const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(express.json())
+
 app.use(cors())
 
 const db = require('./models')

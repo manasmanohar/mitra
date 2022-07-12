@@ -106,7 +106,16 @@
 </template>
 
 <script>
-    export default {}
+    // import axios from 'axios'
+
+    export default {
+        // props: info,
+        // async getEvents() {
+        //     let res = await axios
+        //         .get('http://localhost:8080/travelPosts/')
+        //         .then(res.data)
+        // },
+    }
 </script>
 
 <style></style>

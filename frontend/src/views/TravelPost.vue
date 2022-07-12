@@ -36,7 +36,7 @@
                         class="rounded-lg shadow appearance-none borderrounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
                         placeholder="Eg:Going to Lulu Mall"
-                        v-model="text"
+                        v-model="title"
                     />
                     <span class="text-xs text-red-700" id="emailHelp"></span>
                 </div>
@@ -53,24 +53,7 @@
                         class="rounded-lg shadow appearance-none borderrounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
                         placeholder="Eg:Edappalli"
-                        v-model="text"
-                    />
-                    <span class="text-xs text-red-700" id="emailHelp"></span>
-                </div>
-
-                <div class="identity-input mb-4">
-                    <label
-                        for="identity"
-                        class="rounded-lg block text-gray-700 text-lg font-bold mb-2"
-                    >
-                        Mode of Travel</label
-                    >
-                    <input
-                        id="identity"
-                        class="rounded-lg shadow appearance-none borderrounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text"
-                        placeholder="Eg:Uber"
-                        v-model="text"
+                        v-model="destination"
                     />
                     <span class="text-xs text-red-700" id="emailHelp"></span>
                 </div>
@@ -87,6 +70,7 @@
                             class="rounded-lg form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             id="exampleNumber0"
                             placeholder="Number input"
+                            v-model="noParticipants"
                         />
                     </div>
                 </div>
@@ -101,6 +85,7 @@
                         <select
                             class="rounded-lg form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             aria-label="Default select example"
+                            v-model="modeOfTravel"
                         >
                             <option selected>Select</option>
                             <option value="1">Uber</option>
@@ -138,8 +123,9 @@
                     <input
                         datepicker
                         type="date"
-                        class="rounded-lg bg-gray-50 border border-gray-300 text-gray-900 sm:text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Select date"
+                        v-model="dateOfTravel"
                     />
                 </div>
 
@@ -152,6 +138,7 @@
                     <div class="timepicker relative form-floating mb-3 xl:w-96">
                         <input
                             type="time"
+                            v-model="timeOfTravel"
                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             placeholder="Select a date"
                         />
@@ -171,6 +158,7 @@
                     <button
                         class="bg-blue-600 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
+                        @click="sendForm()"
                     >
                         Submit
                     </button>
@@ -197,13 +185,34 @@
 </style>
 
 <script>
+    import axios from 'axios'
+    // import VueAxios from 'vue-axios'
     export default {
+        name: 'TravelPost',
+        data() {
+            return {
+                userId: '',
+                title: '',
+                destination: '',
+                noParticipants: '',
+                modeOfTravel: '',
+                currentLocation: '',
+                travelMode: '',
+                dateOfTravel: '',
+                timeOfTravel: '',
+            }
+        },
         methods: {
             goToChooseActivity() {
                 this.$router.push('/newactivity')
             },
         },
+        mounted() {
+            const { res } = axios.get('http://localhost:8080/travelPosts/')
+            console.log(res)
+        },
     }
+
     function decrement(e) {
         const btn = e.target.parentNode.parentElement.querySelector(
             'button[data-action="decrement"]'
