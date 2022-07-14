@@ -1,14 +1,15 @@
 <template>
-    <PostCard />
+    <TravelPost />
 </template>
 
 <script>
-    import PostCard from './PostCard.vue'
+    import TravelPost from './travelPost'
     export default {
         name: 'app',
         components: {
-            PostCard,
+            TravelPost,
         },
+        props: ['username'],
     }
 </script>
 

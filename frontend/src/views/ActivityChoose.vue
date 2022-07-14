@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full h-screen flex flex-col realtive">
-        <div id="back-nav " class="flex flex-row ml-5 mt-5">
+    <div id="activtyChoose" class="w-full h-screen flex flex-col realtive">
+        <div class="flex flex-row ml-5 mt-5">
             <svg
                 @click="goToHome()"
                 xmlns="http://www.w3.org/2000/svg"

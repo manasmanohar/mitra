@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full items-center justify-center mb-8">
+    <div id="eventPost" class="flex w-full items-center justify-center mb-8">
         <card class="bg-blue-200 rounded-lg p-5 flex-1">
             <header class="flex font-light text-sm">
                 <p>Event</p>

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-screen flex flex-col realtive">
+    <div id="addPost" class="w-full h-screen flex flex-col realtive">
         <TopNav />
         <div id="back-nav">
             <p>Choose Post Type</p>

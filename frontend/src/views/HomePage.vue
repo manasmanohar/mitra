@@ -1,10 +1,9 @@
 <template>
-    <div class="w-full h-screen flex flex-col realtive">
+    <div id="homePage" class="w-full h-screen flex flex-col realtive">
         <LocationBar />
         <PostSelector />
-        <div class="flex flex-col m-4">
+        <div class="flex flex-col m-4" id="homeBoardOuter">
             <HomeBoard />
-            <PostCard />
         </div>
 
         <router-view />
@@ -17,7 +16,6 @@
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
-    import PostCard from '../components/PostCard.vue'
     import HomeBoard from '../components/HomeBoard'
 
     export default {
@@ -27,12 +25,16 @@
             PostSelector,
             BottomNav,
             HomeBoard,
-            PostCard,
+            // TravelPost,
         },
         mounted() {
             axios
-                .get('https://localhost:8080/travelposts')
-                .then((response) => (this.info = response))
+                .get('http://localhost:8080/travelposts')
+                // headers: {
+                //     'Access-Control-Allow-Origin': 'true',
+                // },
+                .then((response) => console.log(response))
+            // console.log(info)
         },
     }
 </script>

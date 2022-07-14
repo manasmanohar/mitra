@@ -1,7 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
+const cors = require('cors')
+router.use(cors())
+
 const { travelPosts } = require('../models')
+const { application } = require('express')
 
 router.get('/', async (req, res) => {
     const listOfTravelPosts = await travelPosts.findAll()

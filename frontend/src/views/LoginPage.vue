@@ -2,7 +2,7 @@
     <div>
         <TopNav />
 
-        <div id="flex w-screen h-screen ">
+        <div id="loginPage">
             <div
                 class="left bg-green-200 rounded-lg h-72 flex flex-row justify-center items-center"
             >

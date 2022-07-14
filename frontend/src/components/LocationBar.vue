@@ -1,6 +1,6 @@
 <template>
     <div
-        id="LocBar"
+        id="locationBar"
         class="bg-white w-full p-3 flex justify-between align-bottom shadow-lg"
     >
         <div

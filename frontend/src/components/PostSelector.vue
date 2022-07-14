@@ -1,5 +1,8 @@
 <template>
-    <div class="w-full flex flex-row justify-between p-3 shadow-lg m">
+    <div
+        id="PostSelector"
+        class="w-full flex flex-row justify-between p-3 shadow-lg m"
+    >
         <button
             v-bind:class="{
                 ' active': !clicked1,

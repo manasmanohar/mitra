@@ -1,6 +1,9 @@
 <template>
-    <div class="flex flex-col justify-center items-center mt-0">
-        <div class="static top-0 bg-blue-600 w-full m-0 p-40 z-0"></div>
+    <div id="travelPost" class="flex flex-col justify-center items-center mt-0">
+        <div
+            id="innerTravelPost"
+            class="static top-0 bg-blue-600 w-full m-0 p-40 z-0"
+        ></div>
 
         <div class="absolute top-40 w-full max-w-lg m">
             <div class="flex flex-row m-auto items-center">

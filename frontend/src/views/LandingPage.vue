@@ -1,7 +1,7 @@
 <template>
-    <div id="flex flex-wrap w-screen h-screen	">
+    <div id="landingPage">
         <div
-            id="main section "
+            id="mainection "
             class="p-4 bg-green-200 min-h-100 rounded-lg flex flex-row flex-grow justify-center items-center"
         >
             <img
