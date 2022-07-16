@@ -1,7 +1,7 @@
 <template>
     <div
         id="travelPostWrapper"
-        class="flex w-full items-center justify-center mb-8"
+        class="flex w-full items-center justify-center mb-20"
     >
         <div class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md">
             <!-- <header class="flex font-light text-sm">
@@ -9,19 +9,40 @@
             </header> -->
 
             <h2 class="font-bold text-3xl mt-2 mb-3 border-blue-500">
-                Going to Aluva Railway Station
+                Need a USB C Dongle
             </h2>
 
             <div class="flex-shrink-0 flex mb-1" id="userinfo">
-                <div id="user_details" class="flex felx-col items-center mb-2">
+                <div id="user_details" class="flex felx-col items-center mr-4">
                     <img
                         class="w-12 h-12 rounded-full mr-3"
                         src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=460&q=460"
-                        alt="Thomas image"
+                        alt="profile-image"
                     />
 
                     <p class="text-lg content-center font-medium">
-                        Manas Manohar
+                        Manas Manohar,
+                    </p>
+                </div>
+
+                <div id="post-date" class="flex flex-row items-center">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-7 w-7 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                    </svg>
+
+                    <p class="content-center mr-2 font-md font-medium">
+                        Fri, July 21
                     </p>
                 </div>
             </div>
@@ -46,7 +67,7 @@
                     Fri, July 21
                 </p>
 
-                <svg
+                <!-- <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-7 w-7 inline content-center mr-2"
                     fill="none"
@@ -61,15 +82,16 @@
                     />
                 </svg>
 
-                <p class="font-md font-medium">5:00pm</p>
+                <p class="font-md font-medium">5:00pm</p> -->
             </div>
 
             <h3 class="font-xs text-md mt-3">Description:</h3>
-            <p class="font-md font-medium text-lg">
-                Going to catch Janashadabti Expreess at 7pm
+            <p class="font-md font-medium text-lg text-slate-600">
+                Hey! I have a presentation tomorrow and urgently need a usb c
+                hdmi adapter for my macbook. Can anyone lend it to me for a day?
             </p>
 
-            <div class="mt-5 flex justify-self-auto border-gray-300">
+            <!-- <div class="mt-5 flex justify-self-auto border-gray-300">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 w-8 mr-1"
@@ -103,12 +125,12 @@
                     />
                 </svg>
                 <p class="ml-2 font-md font-medium">3</p>
-            </div>
+            </div> -->
 
             <button
                 class="bg-blue-600 :hover:bg-blue-900 justify-center w-full text-white font-semibold rounded-lg py-2 px-5 text-sm mt-4 inline-flex items-center group"
             >
-                <p class="text-lg content-center font-medium">Join</p>
+                <p class="text-lg content-center font-medium">Help</p>
                 <!-- <svg
                     aria-hidden="true"
                     class="ml-2 -mr-1 w-4 h-4"

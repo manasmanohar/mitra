@@ -1,15 +1,20 @@
 <template>
-    <TravelPost />
+    <div>
+        <travelPost />
+        <helpPost />
+    </div>
 </template>
 
 <script>
-    import TravelPost from './travelPost'
+    import travelPost from './travelPost.vue'
+    import helpPost from './helpPost'
+
     export default {
         name: 'app',
         components: {
-            TravelPost,
+            travelPost,
+            helpPost,
         },
-        props: ['username'],
     }
 </script>
 

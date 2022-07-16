@@ -8,7 +8,7 @@
                 ' active': !clicked1,
             }"
             v-on:click="clicked1 = !clicked1"
-            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+            class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
         >
             Travel
         </button>
@@ -18,7 +18,7 @@
                 ' active': !clicked2,
             }"
             v-on:click="clicked2 = !clicked2"
-            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+            class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
         >
             Events</button
         ><button
@@ -26,7 +26,7 @@
                 ' active': !clicked3,
             }"
             v-on:click="clicked3 = !clicked3"
-            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+            class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
         >
             Help</button
         ><button
@@ -34,7 +34,7 @@
                 ' active': !clicked4,
             }"
             v-on:click="clicked4 = !clicked4"
-            class="h-10 px-5 ml-2 text-indigo-700 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
+            class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-indigo-500 rounded-lg focus:shadow-outline"
         >
             Interest
         </button>

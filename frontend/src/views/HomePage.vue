@@ -1,10 +1,11 @@
 <template>
     <div id="homePage" class="w-full h-screen flex flex-col realtive">
+        <TopNav />
         <LocationBar />
         <PostSelector />
-        <!-- <div class="flex flex-col m-4" id="homeboardWrapper"> -->
-        <HomeBoard />
-        <!-- </div> -->
+        <div class="flex flex-col m-4" id="homeboardWrapper">
+            <HomeBoard />
+        </div>
 
         <router-view />
         <BottomNav />
@@ -13,6 +14,7 @@
 
 <script>
     import axios from 'axios'
+
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
@@ -36,7 +38,7 @@
         },
         mounted() {
             axios
-                .get('http://localhost:8080/travelposts')
+                .get('http://localhost:8080/travelPosts')
                 .then((response) => console.log(response))
         },
     }

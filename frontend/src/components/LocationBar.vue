@@ -1,7 +1,7 @@
 <template>
     <div
         id="locationBar"
-        class="bg-white w-full p-3 flex justify-between align-bottom shadow-lg"
+        class="bg-white w-full p-3 flex justify-between align-bottom"
     >
         <div
             class="location mt-2 flex justify-center items-center content-center"
