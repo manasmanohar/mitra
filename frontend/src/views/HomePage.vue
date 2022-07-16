@@ -2,9 +2,9 @@
     <div id="homePage" class="w-full h-screen flex flex-col realtive">
         <LocationBar />
         <PostSelector />
-        <div class="flex flex-col m-4" id="homeBoardOuter">
-            <HomeBoard />
-        </div>
+        <!-- <div class="flex flex-col m-4" id="homeboardWrapper"> -->
+        <HomeBoard />
+        <!-- </div> -->
 
         <router-view />
         <BottomNav />
