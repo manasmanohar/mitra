@@ -19,22 +19,25 @@
     import HomeBoard from '../components/HomeBoard'
 
     export default {
+        data() {
+            return {
+                listOfTravelPosts: [],
+                listOfHelpPosts: [],
+                listOfEventPoss: [],
+                listOfInterests: [],
+            }
+        },
         name: 'App',
         components: {
             LocationBar,
             PostSelector,
             BottomNav,
             HomeBoard,
-            // TravelPost,
         },
         mounted() {
             axios
                 .get('http://localhost:8080/travelposts')
-                // headers: {
-                //     'Access-Control-Allow-Origin': 'true',
-                // },
                 .then((response) => console.log(response))
-            // console.log(info)
         },
     }
 </script>

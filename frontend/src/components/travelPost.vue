@@ -4,9 +4,9 @@
         class="flex w-full items-center justify-center mb-8"
     >
         <div class="bg-blue-200 rounded-lg p-5 flex-1">
-            <header class="flex font-light text-sm">
+            <!-- <header class="flex font-light text-sm">
                 <p>Event</p>
-            </header>
+            </header> -->
 
             <h2 class="font-bold text-3xl mt-2">
                 Going to Aluva Railway Station

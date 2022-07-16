@@ -5,14 +5,13 @@ const cors = require('cors')
 router.use(cors())
 
 const { travelPosts } = require('../models')
-const { application } = require('express')
 
-router.get('/', async (req, res) => {
+router.get('/travelPostsRoute', async (req, res) => {
     const listOfTravelPosts = await travelPosts.findAll()
     res.json(listOfTravelPosts)
 })
 
-router.post('/', async (req, res) => {
+router.post('/travelPostsRoute', async (req, res) => {
     const {
         userId,
         title,
