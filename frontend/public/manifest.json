@@ -1,25 +1,20 @@
 {
-
-    "name": "DC-Covers",
+  "name":"Mitra",
+  "short_name":"Mitra",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#0476F2",
+  "background_color": "#fff",
+  "icons":[
+    {
+    "src":"../img/icons/android-chrome-192x192.png",
+    "sizes":"192x192",
+    "type":"image/png"
+    },
+    {
+    "src":"../img/icons/android-chrome-512x512.png",
+    "sizes":"512x512",
+    "type":"image/png"
+    }]
+ }
   
-    "short_name": "Covers",
-  
-    "start_url": "index.html",
-  
-    "display": "standalone",
-  
-    "theme_color": "#0476F2",
-  
-    "background_color": "#fff",
-  
-    "icons": [
-  
-      {
-  
-        "src": "",
-        "sizes": "", 
-        "type": "" 
-      }
-  
-    ]
-}
