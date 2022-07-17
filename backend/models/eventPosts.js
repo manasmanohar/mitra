@@ -4,12 +4,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-
         title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        location: {
+        event_location: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -18,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         currentLocation: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        eventMode: {
             type: DataTypes.STRING,
             allowNull: false,
         },

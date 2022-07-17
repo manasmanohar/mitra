@@ -20,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             allowNull: false,
         },
-        timeOfEvent: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
     })
     return helpPosts
 }
