@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/HomePage.vue'
+import HomePage from '../views/HomePage.vue'
 import LandingPage from '../views/LandingPage.vue'
-import ActivityChoose from '../views/ActivityChoose.vue'
+import NewPost from '../views/NewPost.vue'
 import TravelPost from '../views/TravelPost.vue'
+import UserInterests from '../views/UserInterests.vue'
+import EventPost from '../views/EventPost'
 
 const routes = [
     {
@@ -13,17 +15,27 @@ const routes = [
     {
         path: '/home',
         name: 'home',
-        component: Home,
+        component: HomePage,
     },
     {
-        path: '/newactivity',
-        name: 'newactivity',
-        component: ActivityChoose,
+        path: '/newpost',
+        name: 'newpost',
+        component: NewPost,
     },
     {
-        path: '/newtravel',
-        name: 'newtrave',
+        path: '/newtravelPost',
+        name: 'newtravelpost',
         component: TravelPost,
+    },
+    {
+        path: '/newinterest',
+        name: 'newinterest',
+        component: UserInterests,
+    },
+    {
+        path: '/newevent',
+        name: 'newevent',
+        component: EventPost,
     },
 ]
 

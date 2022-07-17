@@ -1,9 +1,9 @@
 <template>
     <div
         id="travelPostWrapper"
-        class="flex w-full items-center justify-center mb-8 shadow-sm"
+        class="flex w-full items-center justify-center mb-8"
     >
-        <div class="bg-blue-200 rounded-lg p-5 flex-1">
+        <div class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md">
             <!-- <header class="flex font-light text-sm">
                 <p>Event</p>
             </header> -->

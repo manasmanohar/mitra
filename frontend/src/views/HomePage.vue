@@ -40,6 +40,9 @@
             axios
                 .get('http://localhost:8080/travelPosts')
                 .then((response) => console.log(response))
+            console.log('hi')
+
+            console.log(process.env.PORT)
         },
     }
 </script>

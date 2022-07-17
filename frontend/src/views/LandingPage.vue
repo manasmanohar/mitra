@@ -18,11 +18,11 @@
         </div>
 
         <div
-            class="bg-pink-400 flex flex-col text-center justify-center items-center"
+            class="bg-pink-400 h-40 flex flex-col text-center justify-center items-center"
         >
             <button
-                @click="goToHome"
-                class="px-6 py-3 mt-4 w-1/3 font-semibold text-gray-900 bg-white border-2 border-gray-500 rounded-md shadow outline-none hover:bg-blue-50 hover:border-blue-400 focus:outline-none"
+                @click="gsign()"
+                class="px-6 py-3 mt-4 w-f font-semibold text-gray-900 bg-white border-2 border-gray-500 rounded-md shadow outline-none hover:bg-blue-50 hover:border-blue-400 focus:outline-none"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +57,37 @@
 </template>
 
 <script>
+    import googleOneTap from 'google-one-tap'
+    const options = {
+        client_id: process.env.VUE_APP_clientId, // required
+        auto_select: false, // optional
+        cancel_on_tap_outside: false, // optional
+        context: 'signin', // optional
+    }
     export default {
+        mounted() {
+            const options = {
+                client_id: process.env.VUE_APP_clientId, // required
+                auto_select: false, // optional
+                cancel_on_tap_outside: false, // optional
+                context: 'signin', // optional
+            }
+            googleOneTap(options, (response) => {
+                // Send response to server
+                console.log(response)
+                console.log('hi')
+            })
+        },
         methods: {
             goToHome() {
                 this.$router.push('/home')
+            },
+            gsign() {
+                googleOneTap(options, (response) => {
+                    // Send response to server
+                    console.log(response)
+                    console.log('hi')
+                })
             },
         },
     }
