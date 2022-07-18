@@ -4,7 +4,7 @@
         <LocationBar />
         <PostSelector />
         <div class="flex flex-col m-4" id="homeboardWrapper">
-            <HomeBoard />
+            <HomeBoard :postDatas="listOfTravelPosts" />
         </div>
 
         <router-view />
@@ -19,18 +19,10 @@
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
     import HomeBoard from '../components/HomeBoard'
-    //  listOfTravelPosts = [{}]
-    // var listOfHelpPosts = [{}]
-    // var listOfEventPoss = [{}]
-    // var listOfInterests = [{}]
+
     export default {
         data() {
-            return {
-                // listOfTravelPosts: [],
-                // listOfHelpPosts: [],
-                // listOfEventPoss: [],
-                // listOfInterests: [],
-            }
+            return {}
         },
         name: 'App',
         components: {
@@ -39,14 +31,16 @@
             BottomNav,
             HomeBoard,
         },
-        mounted() {
-            console.log('travelposts')
+        async mounted() {
             axios.get('http://localhost:8080/travelPosts').then((response) => {
-                console.log('list')
-                let listOfTravelPosts = response
-                console.log(listOfTravelPosts.data)
+                // let listOfTravelPosts = response.data
+                // console.log('response.data')
+
+                // console.log(response.data[0].id)
+                this.listOfTravelPosts = response.data
+                console.log('listOfTravelPosts')
+                console.log(this.listOfTravelPosts)
             })
-            // console.log('eventposts')
             // axios
             //     .get('http://localhost:8080/eventposts')
             //     .then((response) => console.log(response))

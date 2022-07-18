@@ -5,6 +5,7 @@ import NewPost from '../views/NewPost.vue'
 import TravelPost from '../views/TravelPost.vue'
 import UserInterests from '../views/UserInterests.vue'
 import EventPost from '../views/EventPost'
+import LandingPage3 from '../views/LandingPage3.vue'
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: '/newevent',
         name: 'newevent',
         component: EventPost,
+    },
+    {
+        path: '/land',
+        name: 'land',
+        component: LandingPage3,
     },
 ]
 

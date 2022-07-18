@@ -9,7 +9,7 @@
             </header> -->
 
             <h2 class="font-bold text-3xl mt-2 mb-3 border-blue-500">
-                Going to Aluva Railway Station
+                bb:{{ travelDatas[1].title }}
             </h2>
 
             <div class="flex-shrink-0 flex mb-1" id="userinfo">
@@ -129,16 +129,11 @@
 
 <script>
     export default {
-        props: [
-            'userId',
-            'title',
-            'destination',
-            'noParticipants',
-            'currentLocation',
-            'travelMode',
-            'dateOfTravel',
-            'timeOfTravel: ',
-        ],
+        props: {
+            travelDatas: {
+                type: Object,
+            },
+        },
     }
 </script>
 
