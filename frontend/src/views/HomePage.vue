@@ -19,14 +19,17 @@
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
     import HomeBoard from '../components/HomeBoard'
-
+    //  listOfTravelPosts = [{}]
+    // var listOfHelpPosts = [{}]
+    // var listOfEventPoss = [{}]
+    // var listOfInterests = [{}]
     export default {
         data() {
             return {
-                listOfTravelPosts: [],
-                listOfHelpPosts: [],
-                listOfEventPoss: [],
-                listOfInterests: [],
+                // listOfTravelPosts: [],
+                // listOfHelpPosts: [],
+                // listOfEventPoss: [],
+                // listOfInterests: [],
             }
         },
         name: 'App',
@@ -38,9 +41,11 @@
         },
         mounted() {
             console.log('travelposts')
-            axios
-                .get('http://localhost:8080/travelPosts')
-                .then((response) => console.log(response))
+            axios.get('http://localhost:8080/travelPosts').then((response) => {
+                console.log('list')
+                let listOfTravelPosts = response
+                console.log(listOfTravelPosts.data)
+            })
             // console.log('eventposts')
             // axios
             //     .get('http://localhost:8080/eventposts')
