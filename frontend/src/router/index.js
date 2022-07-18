@@ -23,7 +23,7 @@ const routes = [
         component: NewPost,
     },
     {
-        path: '/newtravelPost',
+        path: '/newtravel',
         name: 'newtravelpost',
         component: TravelPost,
     },

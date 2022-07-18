@@ -207,7 +207,7 @@
         },
         methods: {
             goToChooseActivity() {
-                this.$router.push('/newactivity')
+                this.$router.push('/newpost')
             },
         },
         mounted() {

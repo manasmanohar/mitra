@@ -37,12 +37,19 @@
             HomeBoard,
         },
         mounted() {
+            console.log('travelposts')
             axios
                 .get('http://localhost:8080/travelPosts')
                 .then((response) => console.log(response))
-            console.log('hi')
+            // console.log('eventposts')
+            // axios
+            //     .get('http://localhost:8080/eventposts')
+            //     .then((response) => console.log(response))
+            // console.log('helpposts')
 
-            console.log(process.env.PORT)
+            // axios
+            //     .get('http://localhost:8080/helpposts')
+            //     .then((response) => console.log(response))
         },
     }
 </script>

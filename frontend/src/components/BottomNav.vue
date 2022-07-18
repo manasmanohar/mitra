@@ -74,7 +74,7 @@
                 this.$router.push('/home')
             },
             goToChooseActivity() {
-                this.$router.push('/newactivity')
+                this.$router.push('/newpost')
             },
             goToNewTravel() {
                 this.$router.push('/newtravel')

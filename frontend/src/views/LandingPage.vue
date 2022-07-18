@@ -50,6 +50,12 @@
                 >Sign in with Google
             </button>
 
+            <div
+                class="g-signin2"
+                data-onsuccess="onSignIn"
+                data-theme="dark"
+            ></div>
+
             <!-- <p class="text-xl">Mitra</p>
                 <p class="text-md">Find a Companion near you</p> -->
         </div>
@@ -57,7 +63,11 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     import googleOneTap from 'google-one-tap'
+    import jwt_decode from 'jwt-decode'
+    var userDetails = [{}]
     const options = {
         client_id: process.env.VUE_APP_clientId, // required
         auto_select: false, // optional
@@ -65,19 +75,6 @@
         context: 'signin', // optional
     }
     export default {
-        mounted() {
-            const options = {
-                client_id: process.env.VUE_APP_clientId, // required
-                auto_select: false, // optional
-                cancel_on_tap_outside: false, // optional
-                context: 'signin', // optional
-            }
-            googleOneTap(options, (response) => {
-                // Send response to server
-                console.log(response)
-                console.log('hi')
-            })
-        },
         methods: {
             goToHome() {
                 this.$router.push('/home')
@@ -89,6 +86,30 @@
                     console.log('hi')
                 })
             },
+            verifyUser(userDetails) {
+                axios
+                    .get('http://localhost:8080/verifyuser', {
+                        data: { userid: userDetails.userid },
+                    })
+                    .then((response) => console.log(response))
+            },
+        },
+
+        data() {},
+
+        mounted() {
+            const options = {
+                client_id: process.env.VUE_APP_clientId, // required
+                auto_select: false, // optional
+                cancel_on_tap_outside: false, // optional
+                context: 'signin', // optional
+            }
+            googleOneTap(options, (response) => {
+                // Send response to server
+                userDetails = jwt_decode(response.credential)
+                console.log(userDetails)
+                this.verifyUser(userDetails)
+            })
         },
     }
 </script>
