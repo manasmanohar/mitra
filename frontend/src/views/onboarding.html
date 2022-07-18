@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+</head>
+<body class="">
+    <nav class=" mx-2 p-4 bg-blue-200">
+        <div class="flex items-left justify-between ">
+            <img class=" h-6 sm:h-9 " src="nav_logo.png" />
+        </div>
+    </nav>
+    <div id="first_div" class="flex flex-justify-between justify-center h-screen w-screen bg-white justify-center p-10">
+        
+        <div id="card" class=" w-80 h-72 px-5 py-8 rounded-xl overflow-hidden border-2 shadow-md mb-6 mt-6 mx-auto bg-slate-200">
+            
+            <div id="first_section" class="flex justify-center">
+                <div id="interests" class="mb-3 xl:w-96">
+                  <label class="form-label font-sans font-bold inline-block mb-2 text-gray-700  ">Tell us your Interests</label>
+                  <input
+                    type="text"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-blue-300 focus:ring-blue-500 focus:border-blue-500 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="exampleText0"
+                    placeholder="Interests seperated by comma "
+                  />
+                </div>
+              </div>
+
+            <div id="second_section" class="flex justify-center">
+                <div id="phone_number" class="mb-3 xl:w-96">
+                  <label  class="form-labelfont-sans font-bold inline-block mb-2 text-gray-700"
+                    >Your Phone Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-blue-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500 "
+                    id="exampleTel0"
+                    placeholder="Phone Number"
+                  />
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
