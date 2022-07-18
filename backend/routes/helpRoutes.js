@@ -6,7 +6,7 @@ router.use(cors())
 
 const { helpPosts } = require('../models')
 
-router.get('/helpPostsRoutes', async (req, res) => {
+router.get('/', async (req, res) => {
     const listOfHelpPosts = await helpPosts.findAll()
     res.json(listOfHelpRoutes)
 })

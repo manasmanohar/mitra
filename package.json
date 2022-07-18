@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "google-one-tap": "^1.0.6"
   }
 }
