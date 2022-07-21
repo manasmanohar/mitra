@@ -1,12 +1,9 @@
 <template>
     <div
         id="BottomNav"
-        class="pr-4 pl-4 pb-2 pt-3 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed bottom-0 inset-x-0 z-50 bg-white shadow border-t-4 border-grey-100"
+        class="pl-4 pb-2 pt-3 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed bottom-0 inset-x-0 z-50 bg-white shadow border-t-4 border-grey-100"
     >
-        <div
-            @click="goToHome()"
-            class="botom-btn flex flex-col items-center pr-3"
-        >
+        <div @click="goToHome()" class="botom-btn flex flex-col items-center">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
@@ -26,7 +23,7 @@
 
         <div
             @click="goToChooseActivity()"
-            class="botom-btn flex flex-col items-center mr-2"
+            class="botom-btn flex flex-col items-center"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +44,7 @@
 
         <div
             @click="goToNewTravel()"
-            class="botom-btn flex flex-col items-center"
+            class="botom-btn pr-4 flex flex-col items-center"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"

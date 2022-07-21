@@ -1,5 +1,5 @@
 <template>
-    <div v-if="listOfTravelPosts" class="m-2 mb-10">
+    <div v-if="listOfTravelPosts" class="m-2">
         <!-- <p>{{ postDatas }}</p> -->
 
         <travelPost
