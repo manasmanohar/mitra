@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         destination: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -33,5 +37,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
     })
+
     return travelPosts
 }
