@@ -6,6 +6,7 @@ import TravelPost from '../views/TravelPost.vue'
 import UserInterests from '../views/UserInterests.vue'
 import EventPost from '../views/EventPost'
 import LandingPage3 from '../views/LandingPage3.vue'
+import UserMessages from '../views/UserMessages.vue'
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/land',
         name: 'land',
         component: LandingPage3,
+    },
+    {
+        path: '/messages',
+        name: 'messages',
+        component: UserMessages,
     },
 ]
 
