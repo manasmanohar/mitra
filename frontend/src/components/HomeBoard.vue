@@ -1,14 +1,15 @@
 <template>
-    <div>
-        <!-- <p v-if="postDatas">{{ postDatas }}</p> -->
+    <div v-if="listOfTravelPosts" class="m-2 mb-10">
+        <!-- <p>{{ postDatas }}</p> -->
+
         <travelPost
-            v-for="postData in postDatas"
-            :key="postData.id"
-            :travelDatas="postDatas"
+            v-for="(travelPosts, index) in listOfTravelPosts"
+            :key="travelPosts"
+            :travelDatas="listOfTravelPosts"
+            :id="index"
         />
 
         <!-- <travelPost :data="[{ postDatas }]" /> -->
-        <!-- {{ postDatas }} -->
 
         <!-- {{ postDatas[0].id }} -->
         <!-- <travelPost />
@@ -21,11 +22,16 @@
 
 <script>
     import travelPost from './travelPost.vue'
+    import axios from 'axios'
+
     // import helpPost from './helpPost'
     // import eventPost from './helpPost'
     // import userInterest from './userInterest'
 
     export default {
+        data() {
+            return { listOfTravelPosts: {} }
+        },
         name: 'app',
         components: {
             travelPost,
@@ -33,10 +39,15 @@
             // eventPost,
             // userInterest,
         },
-        props: {
-            postDatas: {
-                type: Object,
-            },
+        async created() {
+            axios.get('http://localhost:8080/travelPosts').then((response) => {
+                this.listOfTravelPosts = response.data
+
+                console.log('in homeboard')
+                console.log(this.listOfTravelPosts)
+
+                // console.log(response.data[0].id)
+            })
         },
     }
 </script>

@@ -95,7 +95,11 @@
             },
         },
 
-        data() {},
+        data() {
+            return {
+                userDetails: {},
+            }
+        },
 
         mounted() {
             const options = {

@@ -3,13 +3,12 @@
         id="travelPostWrapper"
         class="flex w-full items-center justify-center mb-8"
     >
-        <div class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md">
-            <!-- <header class="flex font-light text-sm">
-                <p>Event</p>
-            </header> -->
-
+        <div
+            class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md"
+            v-bind:value="travelDatas[id].title"
+        >
             <h2 class="font-bold text-3xl mt-2 mb-3 border-blue-500">
-                bb:{{ travelDatas[1].title }}
+                {{ travelDatas[id].title }}
             </h2>
 
             <div class="flex-shrink-0 flex mb-1" id="userinfo">
@@ -21,7 +20,7 @@
                     />
 
                     <p class="text-lg content-center font-medium">
-                        Manas Manohar
+                        {{ travelDatas[id].userId }}
                     </p>
                 </div>
             </div>
@@ -43,7 +42,7 @@
                 </svg>
 
                 <p class="content-center mr-2 font-md font-medium">
-                    Fri, July 21
+                    {{ travelDatas[id].dateOfTravel }}
                 </p>
 
                 <svg
@@ -61,12 +60,15 @@
                     />
                 </svg>
 
-                <p class="font-md font-medium">5:00pm</p>
+                <p class="font-md font-medium">
+                    {{ travelDatas[id].timeOfTravel }}
+                </p>
             </div>
 
             <h3 class="font-xs text-md mt-3">Description:</h3>
             <p class="font-md font-medium text-lg">
-                Going to catch Janashadabti Expreess at 7pm
+                {{ travelDatas[id].dateOfTravel }}
+                ! add post desc
             </p>
 
             <div class="mt-5 flex justify-self-auto border-gray-300">
@@ -86,7 +88,7 @@
                 </svg>
 
                 <p href="#" class="content-center mr-6 font-md font-medium">
-                    Uber
+                    {{ travelDatas[id].travelMode }}
                 </p>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -102,26 +104,16 @@
                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                 </svg>
-                <p class="ml-2 font-md font-medium">3</p>
+                <p class="ml-2 font-md font-medium">
+                    {{ travelDatas[id].noParticipants }}
+                </p>
             </div>
 
             <button
                 class="bg-blue-600 :hover:bg-blue-900 justify-center w-full text-white font-semibold rounded-lg py-2 px-5 text-sm mt-4 inline-flex items-center group"
             >
                 <p class="text-lg content-center font-medium">Join</p>
-                <!-- <svg
-                    aria-hidden="true"
-                    class="ml-2 -mr-1 w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                    ></path>
-                </svg> -->
+                --
             </button>
         </div>
     </div>
@@ -130,9 +122,8 @@
 <script>
     export default {
         props: {
-            travelDatas: {
-                type: Object,
-            },
+            travelDatas: Object,
+            id: Number,
         },
     }
 </script>

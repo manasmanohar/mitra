@@ -1,7 +1,7 @@
 <template>
     <div
         id="PostSelector"
-        class="w-full flex flex-row justify-between p-3 shadow-lg m"
+        class="bg-white sticky top-20 z-50 w-full flex flex-row justify-between p-3"
     >
         <button
             v-bind:class="{

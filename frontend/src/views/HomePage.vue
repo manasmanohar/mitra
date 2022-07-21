@@ -1,20 +1,16 @@
 <template>
     <div id="homePage" class="w-full h-screen flex flex-col realtive">
-        <TopNav />
         <LocationBar />
         <PostSelector />
-        <div class="flex flex-col m-4" id="homeboardWrapper">
-            <HomeBoard :postDatas="listOfTravelPosts" />
-        </div>
 
+        <HomeBoard class="pb-14 px-2" />
         <router-view />
         <BottomNav />
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
-
+    // import axios from 'axios'
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
@@ -22,7 +18,9 @@
 
     export default {
         data() {
-            return {}
+            return {
+                listOfTravelPosts: {},
+            }
         },
         name: 'App',
         components: {
@@ -31,25 +29,26 @@
             BottomNav,
             HomeBoard,
         },
-        async mounted() {
-            axios.get('http://localhost:8080/travelPosts').then((response) => {
-                // let listOfTravelPosts = response.data
-                // console.log('response.data')
 
-                // console.log(response.data[0].id)
-                this.listOfTravelPosts = response.data
-                console.log('listOfTravelPosts')
-                console.log(this.listOfTravelPosts)
-            })
-            // axios
-            //     .get('http://localhost:8080/eventposts')
-            //     .then((response) => console.log(response))
-            // console.log('helpposts')
+        // async created() {
+        //     axios.get('http://localhost:8080/travelPosts').then((response) => {
+        //         this.listOfTravelPosts = response.data
 
-            // axios
-            //     .get('http://localhost:8080/helpposts')
-            //     .then((response) => console.log(response))
-        },
+        //         console.log('in homepage')
+        //         console.log(this.listOfTravelPosts)
+
+        //         // console.log(response.data[0].id)
+        //     })
+
+        // axios
+        //     .get('http://localhost:8080/eventposts')
+        //     .then((response) => console.log(response))
+        // console.log('helpposts')
+
+        // axios
+        //     .get('http://localhost:8080/helpposts')
+        //     .then((response) => console.log(response))
+        // },
     }
 </script>
 

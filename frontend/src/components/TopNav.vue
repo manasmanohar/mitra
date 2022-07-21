@@ -1,7 +1,7 @@
 <template>
     <div
         id="TopBar"
-        class="w-full bg-white p-2 h-20 border-b-2 flex items-center justify-between align-top top-0 mb-3fixed"
+        class="sticky top-0 z-50 w-full bg-white p-2 h-20 flex items-center justify-between align-top mb-3"
     >
         <img
             src="../assets/logo3.jpg"

@@ -1,7 +1,7 @@
 <template>
     <div
         id="BottomNav"
-        class="pr-4 pl-4 pb-2 pt-3 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed inset-x-0 bottom-0 bg-white shadow border-t-4 border-grey-100"
+        class="pr-4 pl-4 pb-2 pt-3 items-center space-y-0 flex justify-between flex-row flex-grow align-bottom fixed bottom-0 inset-x-0 z-50 bg-white shadow border-t-4 border-grey-100"
     >
         <div
             @click="goToHome()"
