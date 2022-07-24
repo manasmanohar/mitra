@@ -43,6 +43,22 @@
                     />
                     <span class="text-xs text-red-700" id="emailHelp"></span>
                 </div>
+                <div class="identity-input mb-4">
+                    <label
+                        for="identity"
+                        class="block text-gray-700 text-lg font-bold mb-2"
+                    >
+                        Post Description</label
+                    >
+                    <input
+                        id="identity"
+                        class="rounded-lg shadow appearance-none borderrounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Add a short description"
+                        v-model="description"
+                    />
+                    <span class="text-xs text-red-700" id="description"></span>
+                </div>
 
                 <div class="identity-input mb-4">
                     <label
@@ -161,7 +177,7 @@
                     <button
                         class="bg-blue-600 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
-                        @click="sendForm()"
+                        @click="submitForm()"
                     >
                         Submit
                     </button>
@@ -193,8 +209,9 @@
         name: 'TravelPost',
         data() {
             return {
-                userId: '',
+                userId: '1231',
                 title: '',
+                description: '',
                 destination: '',
                 noParticipants: '',
                 modeOfTravel: '',
@@ -207,6 +224,28 @@
         methods: {
             goToChooseActivity() {
                 this.$router.push('/newpost')
+            },
+            submitForm() {
+                axios
+                    .post('http://localhost:8080/travelPosts/addtravelpost', {
+                        userID: this.userId,
+                        title: this.title,
+                        description: this.description,
+                        destination: this.destination,
+                        noParticipants: this.noParticipants,
+                        modeOfTravel: this.modeOfTravel,
+                        currentLocation: this.currentLocation,
+                        travelMode: this.travelMode,
+                        dateOfTravel: this.dateOfTravel,
+                        timeOfTravel: this.timeOfTravel,
+                    })
+                    .then((response) => {
+                        console.log(response)
+                        this.response = response.data
+                    })
+                    .catch((error) => {
+                        this.response = 'Error: ' + error.response.status
+                    })
             },
         },
         mounted() {
