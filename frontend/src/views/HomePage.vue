@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    // import axios from 'axios'
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
@@ -29,26 +28,6 @@
             BottomNav,
             HomeBoard,
         },
-
-        // async created() {
-        //     axios.get('http://localhost:8080/travelPosts').then((response) => {
-        //         this.listOfTravelPosts = response.data
-
-        //         console.log('in homepage')
-        //         console.log(this.listOfTravelPosts)
-
-        //         // console.log(response.data[0].id)
-        //     })
-
-        // axios
-        //     .get('http://localhost:8080/eventposts')
-        //     .then((response) => console.log(response))
-        // console.log('helpposts')
-
-        // axios
-        //     .get('http://localhost:8080/helpposts')
-        //     .then((response) => console.log(response))
-        // },
     }
 </script>
 
