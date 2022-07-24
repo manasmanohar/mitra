@@ -19,12 +19,12 @@ const travelPostsRouter = require('./routes/travelRoutes')
 app.use('/travelposts', travelPostsRouter)
 
 const UsersVerifyRouter = require('./routes/usersRoutes')
-app.use('/verifyuser', UsersVerifyRouter)
+app.use('/users', UsersVerifyRouter)
 
 const helpPostRouter = require('./routes/helpRoutes')
 app.use('/helpposts', helpPostRouter)
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`)
     })
