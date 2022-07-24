@@ -6,6 +6,7 @@ router.use(cors())
 
 const { Users } = require('../models')
 
+//get all users
 router.get('/', async (req, res) => {
     try {
         const listOfUsers = await Users.findAll()
@@ -16,13 +17,27 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
-    const { userId } = req.body
+//check if user exists
+router.get('/verifyuser', async (req, res) => {
+    // const { userId, phone, name, email } = req.body
+    // console.log(name)
+
+    // try {
+    //     const userExists = await Users.findAll({
+    //         where: {
+    //             userId,
+    //         },
+    //     })
+    // } catch (err) {
+    //     console.log(err)
+    // }
+
+    const { user } = req.body
 
     try {
         const dVerifyUser = await Users.findAll({
             where: {
-                user_id: userId,
+                userId: user,
             },
         })
         if (dVerifyUser) {
@@ -34,5 +49,45 @@ router.post('/', async (req, res) => {
         console.log(err)
     }
 })
+
+//create new user
+
+// router.post('/', async (req, res) => {
+//     const { userId } = req.body
+
+//     try {
+//         const dVerifyUser = await Users.findAll({
+//             where: {
+//                 user_id: userId,
+//             },
+//         })
+//         if (dVerifyUser) {
+//             return res.json(dVerifyUser)
+//         } else {
+//             return res(404)
+//         }
+//     } catch (err) {
+//         console.log(err)
+//     }
+// })
+
+// router.post('/', async (req, res) => {
+//     const { userId } = req.body
+
+//     try {
+//         const dVerifyUser = await Users.findAll({
+//             where: {
+//                 user_id: userId,
+//             },
+//         })
+//         if (dVerifyUser) {
+//             return res.json(dVerifyUser)
+//         } else {
+//             return res(404)
+//         }
+//     } catch (err) {
+//         console.log(err)
+//     }
+// })
 
 module.exports = router
