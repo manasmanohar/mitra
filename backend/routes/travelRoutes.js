@@ -11,12 +11,14 @@ router.get('/', async (req, res) => {
     res.json(listOfTravelPosts)
 })
 
-router.post('/travelPostsRoute', async (req, res) => {
+router.post('/addtravelpost', async (req, res) => {
     const {
         userId,
         title,
+        description,
         destination,
         noParticipants,
+        modeOfTravel,
         currentLocation,
         travelMode,
         dateOfTravel,
@@ -27,8 +29,10 @@ router.post('/travelPostsRoute', async (req, res) => {
         const newpost = await travelPosts.create({
             userId,
             title,
+            description,
             destination,
             noParticipants,
+            modeOfTravel,
             currentLocation,
             travelMode,
             dateOfTravel,
