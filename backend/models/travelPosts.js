@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
+        modeOfTravel: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
         destination: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -24,10 +29,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        travelMode: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+
         dateOfTravel: {
             type: DataTypes.DATE,
             allowNull: false,
