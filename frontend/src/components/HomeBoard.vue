@@ -1,6 +1,7 @@
 <template>
     <div v-if="listOfTravelPosts" class="m-2">
         <!-- <p>{{ postDatas }}</p> -->
+        current user:- {{ this.$route.params.currentUser }} -
 
         <travelPost
             v-for="(travelPosts, index) in listOfTravelPosts"
@@ -8,7 +9,6 @@
             :travelDatas="listOfTravelPosts"
             :id="index"
         />
-
         <!-- <travelPost :data="[{ postDatas }]" /> -->
 
         <!-- {{ postDatas[0].id }} -->
@@ -30,7 +30,7 @@
 
     export default {
         data() {
-            return { listOfTravelPosts: {} }
+            return { listOfTravelPosts: {}, currentUser: {} }
         },
         name: 'app',
         components: {
@@ -44,6 +44,7 @@
                 this.listOfTravelPosts = response.data
 
                 console.log('in homeboard')
+
                 console.log(this.listOfTravelPosts)
 
                 // console.log(response.data[0].id)

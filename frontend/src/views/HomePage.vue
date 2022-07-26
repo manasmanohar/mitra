@@ -17,9 +17,12 @@
 
     export default {
         data() {
-            return {
-                listOfTravelPosts: {},
-            }
+            return {}
+        },
+        props: {
+            userDetails: {
+                type: Object,
+            },
         },
         name: 'App',
         components: {

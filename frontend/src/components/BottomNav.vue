@@ -43,7 +43,7 @@
         </div>
 
         <div
-            @click="goToNewTravel()"
+            @click="goToMessages()"
             class="botom-btn pr-4 flex flex-col items-center"
         >
             <svg

@@ -11,12 +11,9 @@
             />
 
             <div id="text ">
-                <!-- <p class="text-6xl bold font-serif">Mitra</p> -->
                 <span class="text-2xl">Find a Companion near you</span>
             </div>
-            <!-- <div
-            class="bg-pink-400 h-40 flex flex-col text-center justify-center items-center"
-        > -->
+
             <div class="mt-20 w-full flex justify-center">
                 <div class="mb-3 w-72">
                     <label
@@ -82,7 +79,10 @@
     export default {
         methods: {
             goToHome() {
-                this.$router.push('/home')
+                this.$router.push({
+                    name: 'home',
+                    params: { currentUser: userDetails.sub },
+                })
             },
             gsign() {
                 googleOneTap(options, (response) => {
@@ -102,7 +102,7 @@
 
         data() {
             return {
-                userDetails: {},
+                userDetails: '',
                 userId: '',
                 phone: '',
             }
@@ -119,7 +119,7 @@
                 // Send response to server
                 userDetails = jwt_decode(response.credential)
                 console.log(userDetails)
-                this.verifyUser(userDetails)
+                // this.verifyUser(userDetails)
             })
         },
     }
