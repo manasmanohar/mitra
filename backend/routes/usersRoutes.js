@@ -50,27 +50,40 @@ router.get('/verifyuser', async (req, res) => {
     }
 })
 
-//create new user
+// create new user
 
-// router.post('/', async (req, res) => {
-//     const { userId } = req.body
+router.post('/registeruser', async (req, res) => {
+    const { userId, userName, picture, email, number } = req.body
 
-//     try {
-//         const dVerifyUser = await Users.findAll({
-//             where: {
-//                 user_id: userId,
-//             },
-//         })
-//         if (dVerifyUser) {
-//             return res.json(dVerifyUser)
-//         } else {
-//             return res(404)
-//         }
-//     } catch (err) {
-//         console.log(err)
+    try {
+        const newUser = await Users.create({
+            userId: userId,
+            userName: userName,
+            picture: picture,
+            email: email,
+            phone: number,
+        })
+        return res.json(newUser)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+// check if user exists
+// try {
+//     const dVerifyUser = await Users.findAll({
+//         where: {
+//             user_id: userId,
+//         },
+//     })
+//     if (dVerifyUser) {
+//         return res.json(dVerifyUser)
+//     } else {
+//         return res(404)
 //     }
-// })
-
+// } catch (err) {
+//     console.log(err)
+// }
 // router.post('/', async (req, res) => {
 //     const { userId } = req.body
 
