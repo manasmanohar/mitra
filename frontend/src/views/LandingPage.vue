@@ -14,7 +14,7 @@
                 <span class="text-2xl">Find a Companion near you</span>
             </div>
 
-            <div class="mt-20 w-full flex justify-center">
+            <div class="mt-20 w-full flex justify-center invisible">
                 <div class="mb-3 w-72">
                     <label
                         for="exampleFormControlInput1"
@@ -24,7 +24,7 @@
                     <input
                         type="text"
                         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-2 border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        id="exampleFormControlInput1"
+                        id="userPhone"
                         placeholder="+918547866768"
                     />
                 </div>
@@ -89,11 +89,25 @@
                     // Send response to server
                     console.log(response)
                     console.log('hi')
+                    console.log(response.sub)
                 })
             },
-            verifyUser(userDetails) {
+            registerUser() {
                 axios
-                    .get('http://localhost:8080/user', {
+                    .get('http://localhost:8080/user/registeruser', {
+                        data: {
+                            userid: userDetails.sub,
+                            name: userDetails.name,
+                            picture: userDetails.picture,
+                            email: userDetails.email,
+                            number: document.getElementById('userPhone').value,
+                        },
+                    })
+                    .then((response) => console.log(response))
+            },
+            userExists(userDetails) {
+                axios
+                    .get('http://localhost:8080/user/userexists', {
                         data: { userid: userDetails.userid },
                     })
                     .then((response) => console.log(response))
@@ -119,6 +133,7 @@
                 // Send response to server
                 userDetails = jwt_decode(response.credential)
                 console.log(userDetails)
+                console.log('hi')
                 // this.verifyUser(userDetails)
             })
         },

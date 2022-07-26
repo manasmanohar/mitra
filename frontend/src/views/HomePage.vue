@@ -2,7 +2,7 @@
     <div id="homePage" class="w-full h-screen flex flex-col realtive">
         <LocationBar />
         <PostSelector />
-
+        {{ userDetails }}
         <HomeBoard class="pb-14 px-2" />
         <router-view />
         <BottomNav />
