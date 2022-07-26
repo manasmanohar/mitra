@@ -35,9 +35,6 @@
         name: 'app',
         components: {
             travelPost,
-            // helpPost,
-            // eventPost,
-            // userInterest,
         },
         async created() {
             axios.get('http://localhost:8080/travelPosts').then((response) => {
