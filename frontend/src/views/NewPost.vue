@@ -20,12 +20,12 @@
         </div>
 
         <div
-            @click="goToNewTravel"
             id="event-types"
             class="flex flex-col p-3 justify-center items-center"
         >
             <div
                 id="Travel"
+                @click="goToNewTravelPost"
                 class="rounded bg-pink-400 p-12 m-3 w-full h-1/3 flex flex-col justify-center text-center"
             >
                 Travel
@@ -49,15 +49,18 @@
 
 <script>
     import BottomNav from '../components/BottomNav.vue'
-
     export default {
         name: 'App',
         components: {
             BottomNav,
         },
         methods: {
-            goToNewTravel() {
-                this.$router.push('/newtravel')
+            goToNewTravelPost() {
+                //     this.$router.push('/newtravel')
+                this.$router.push({
+                    name: 'newtravelpost',
+                    params: { bb: this.$route.params.bb },
+                })
             },
             goToHome() {
                 this.$router.push('/home')

@@ -24,21 +24,25 @@ const routes = [
         path: '/newpost',
         name: 'newpost',
         component: NewPost,
+        props: true,
     },
     {
         path: '/newtravel',
         name: 'newtravelpost',
         component: TravelPost,
+        props: true,
     },
     {
         path: '/newinterest',
         name: 'newinterest',
         component: UserInterests,
+        props: true,
     },
     {
         path: '/newevent',
         name: 'newevent',
         component: EventPost,
+        props: true,
     },
     {
         path: '/land',

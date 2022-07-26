@@ -205,11 +205,12 @@
 
 <script>
     import axios from 'axios'
+
     export default {
         name: 'TravelPost',
         data() {
             return {
-                userId: '1232323',
+                userId: '',
                 title: '',
                 description: '',
                 destination: '',
@@ -228,7 +229,7 @@
             submitForm() {
                 axios
                     .post('http://localhost:8080/travelPosts/addtravelpost', {
-                        userID: this.userId,
+                        userId: this.userId,
                         title: this.title,
                         description: this.description,
                         destination: this.destination,
@@ -249,8 +250,11 @@
             },
         },
         mounted() {
-            const { res } = axios.get('http://localhost:8080/travelPosts/')
-            console.log(res)
+            this.userId = this.$route.params.bb
+            console.log(this.userId)
+
+            this.currentLocation = this.$route.params.bb
+            console.log(this.userId)
         },
     }
 

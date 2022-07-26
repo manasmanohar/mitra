@@ -10,12 +10,17 @@
 </template>
 
 <script>
+    // import useUserStore from '../stores/userState'
+
     import LocationBar from '../components/LocationBar.vue'
     import BottomNav from '../components/BottomNav.vue'
     import PostSelector from '../components/PostSelector.vue'
     import HomeBoard from '../components/HomeBoard'
 
     export default {
+        // setup() {
+        //     const userpinia = useUserStore()
+        // },
         data() {
             return {}
         },
@@ -32,6 +37,7 @@
             HomeBoard,
         },
     }
+    // console.log(userpinia)
 </script>
 
 <style></style>

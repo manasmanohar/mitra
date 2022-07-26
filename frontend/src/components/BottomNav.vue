@@ -18,7 +18,7 @@
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
             </svg>
-            <span>Home</span>
+            <span>Home </span>
         </div>
 
         <div
@@ -39,7 +39,7 @@
                     d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
             </svg>
-            <span>New Activity</span>
+            <span>New Activity {{ this.$route.params.currentUser }}</span>
         </div>
 
         <div
@@ -71,13 +71,18 @@
                 this.$router.push('/home')
             },
             goToChooseActivity() {
-                this.$router.push('/newpost')
+                // this.$router.push('/newpost')
+                this.$router.push({
+                    name: 'newpost',
+                    params: { bb: this.$route.params.currentUser },
+                })
             },
-            goToNewTravel() {
-                this.$router.push('/newtravel')
-            },
+
             goToMessages() {
-                this.$router.push('/messages')
+                this.$router.push({
+                    name: 'messages',
+                    params: { currentUser: this.$route.params.currentUser },
+                })
             },
         },
     }
