@@ -6,7 +6,7 @@
             :travelDatas="listOfTravelPosts"
             :id="index"
         />
-        <img :src="this.myname.picture" alt="" />
+        <img :src="pp" alt="" />
 
         <!-- {{ myname.sub }} -->
         <!-- <travelPost :data="[{ postDatas }]" /> -->
@@ -30,7 +30,11 @@
 
     export default {
         data() {
-            return { listOfTravelPosts: {}, myname: {} }
+            return {
+                listOfTravelPosts: {},
+                myname: {},
+                pp: '',
+            }
         },
         name: 'app',
         components: {
@@ -38,13 +42,15 @@
         },
         mounted() {
             this.myname = JSON.parse(localStorage.getItem('userinfo'))
-            console.log('hi')
-            console.log(this.myname.sub)
         },
         async created() {
+            let user = JSON.parse(localStorage.getItem('user_id'))
+            console.log(`fetching ${user} posts`)
+
+            console.log(user)
             axios
-                .get('http://localhost:8080/travelPosts', {
-                    userId: this.myname.sub,
+                .post('http://localhost:8080/travelposts', {
+                    userId: user,
                 })
                 .then((response) => {
                     this.listOfTravelPosts = response.data

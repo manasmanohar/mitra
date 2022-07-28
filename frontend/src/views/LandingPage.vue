@@ -13,23 +13,22 @@
             <div id="text ">
                 <span class="text-2xl">Find a Companion near you</span>
             </div>
-
-            <div class="mt-20 w-full flex justify-center invisible">
+            <div v-if="!user_id" class="mt-20 w-full flex justify-center">
                 <div class="mb-3 w-72">
                     <label
                         for="exampleFormControlInput1"
-                        class="form-label inline-block mb-2 text-gray-700"
+                        class="form-label inline-block mb-2 text-lg text-gray-800"
                         >Enter your Phone Number</label
                     >
                     <input
                         type="text"
-                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-2 border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border-4 border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         id="userPhone"
                         placeholder="+918547866768"
                     />
                 </div>
             </div>
-            //goToHome
+
             <button
                 @click="registerUser()"
                 class="flex flex-row px-6 py-3 mt-4 w-f font-semibold text-white bg-blue-400 border-2 rounded-md shadow outline-nonefocus:outline-none"
@@ -78,14 +77,16 @@
     let user_name
     let user_email
     let user_picture
-    let user_number = 9878767656
+    let user_number
+
     export default {
         data() {
             return {
                 userDetails: '',
-                userId: '',
+                user_id: '',
                 phone: '',
                 currentUser: '',
+                isnew: 'true',
             }
         },
         // signin
@@ -120,6 +121,10 @@
 
                 console.log(user_picture)
 
+                if (user_id) {
+                    this.$router.push({ name: 'home' })
+                }
+                console.log(this.user_id)
                 this.checkuserExists()
 
                 // this.$router.push({ name: 'home' })
@@ -131,19 +136,15 @@
             // user_name = JSON.parse(localStorage.getItem('name'))
             // user_email = JSON.parse(localStorage.getItem('email'))
             // user_picture = JSON.parse(localStorage.getItem)('picture')
-
-            console.log('onetap')
-            console.log('user_id')
-
-            console.log(this.user_id)
-            console.log(user_id)
-
-            if (user_id) {
-                this.$router.push({ name: 'home' })
-            } else this.checkuserExists()
         },
 
         methods: {
+            mounted() {
+                // let br_user = JSON.parse(localStorage.getItem('user_id'))
+                // if (br_user) {
+                //     this.$router.push({ name: 'home' })
+                // }
+            },
             // router
             goToHome() {
                 this.$router.push({
@@ -160,25 +161,29 @@
                 axios
                     .post('http://localhost:8080/users/checkifuserexists', {
                         userId: user_id,
-
-                        // removed data{}
                     })
                     .then((response) => {
                         console.log(response)
                         if (!response) {
+                            this.isnew = true
+                            console.log(this.isnew)
                             registerUser()
                         }
                     })
             },
 
             registerUser() {
+                user_number = document.getElementById('userPhone').value
+                console.log(user_number)
+                localStorage.setItem('phone', JSON.stringify(user_number))
+                // user_number = JSON.parse(localStorage.getItem('phone'))
+
                 console.log('register invoked')
                 user_id = JSON.parse(localStorage.getItem('user_id'))
-
                 user_name = JSON.parse(localStorage.getItem('name'))
                 user_email = JSON.parse(localStorage.getItem('email'))
                 user_picture = JSON.parse(localStorage.getItem('picture'))
-                user_number = 9878767656
+                user_number = JSON.parse(localStorage.getItem('phone'))
                 axios
                     .post('http://localhost:8080/users/registeruser', {
                         user_id,
@@ -190,6 +195,7 @@
                     .then((response) => {
                         console.log(response)
                     })
+                this.$router.push({ name: 'home' })
             },
         },
     }

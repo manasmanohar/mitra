@@ -40,6 +40,7 @@
 
 <script>
     import axios from 'axios'
+
     export default {
         data() {
             return {
@@ -92,6 +93,17 @@
                         } else {
                             this.address =
                                 response.data.results[0].address_components[1].short_name
+
+                            localStorage.setItem(
+                                'user_location',
+                                JSON.stringify(this.address)
+                            )
+                            console.log(
+                                JSON.parse(
+                                    localStorage.getItem('user_location')
+                                )
+                            )
+
                             console.log(
                                 response.data.results[0].address_components[1]
                                     .short_name
@@ -106,6 +118,15 @@
                     })
             },
         },
+        // mounted() {
+        //     this.user_location = localStorage.setItem('user_location')
+        //     console.log(user_location)
+        // this.userId = this.$route.params.bb
+        // console.log(this.userId)
+
+        // this.currentLocation = this.$route.params.bb
+        // console.log(this.userId)
+        // },
     }
 </script>
 

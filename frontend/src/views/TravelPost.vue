@@ -208,6 +208,8 @@
 <script>
     import axios from 'axios'
     import BottomNav from '../components/BottomNav.vue'
+    let user_id = JSON.parse(localStorage.getItem('user_id'))
+    let user_location = JSON.parse(localStorage.getItem('user_location'))
 
     export default {
         name: 'TravelPost',
@@ -221,7 +223,7 @@
                 description: '',
                 destination: '',
                 noParticipants: '',
-                modeOfTravel: 'Kakkanad',
+                modeOfTravel: '',
                 currentLocation: '',
                 travelMode: '',
                 dateOfTravel: '',
@@ -232,19 +234,27 @@
             goToChooseActivity() {
                 this.$router.push({
                     name: 'newpost',
-                    params: { currentUser: this.$route.params.currentUser },
                 })
             },
             submitForm() {
+                this.user_location = JSON.parse(
+                    localStorage.getItem('user_location')
+                )
+
+                this.user_id = JSON.parse(localStorage.getItem('user_id'))
+                console.log('hi')
+
+                console.log(user_id)
+                console.log(user_location)
                 axios
                     .post('http://localhost:8080/travelPosts/addtravelpost', {
-                        userId: this.userId,
+                        userId: this.user_id,
                         title: this.title,
                         description: this.description,
                         destination: this.destination,
                         noParticipants: this.noParticipants,
                         modeOfTravel: this.modeOfTravel,
-                        currentLocation: this.currentLocation,
+                        currentLocation: this.user_location,
                         travelMode: this.travelMode,
                         dateOfTravel: this.dateOfTravel,
                         timeOfTravel: this.timeOfTravel,
@@ -259,11 +269,10 @@
             },
         },
         mounted() {
-            this.userId = this.$route.params.bb
-            console.log(this.userId)
-
-            this.currentLocation = this.$route.params.bb
-            console.log(this.userId)
+            // user_location = JSON.parse(localStorage.getItem('user_location'))
+            // user_id = JSON.parse(localStorage.getItem('user_id'))
+            // console.log('sbss')
+            // console.log(user_id)
         },
     }
 
