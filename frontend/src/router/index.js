@@ -53,6 +53,7 @@ const routes = [
         path: '/messages',
         name: 'messages',
         component: UserMessages,
+        props: true,
     },
 ]
 

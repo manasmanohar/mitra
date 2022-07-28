@@ -13,7 +13,7 @@
 
                 <div class="flex flex-col">
                     <p class="text-lg content-center font-medium">
-                        Manas Manohar
+                        {{ this.$route.params.currentUser }} Manas Manohar
                     </p>
                     <p class="text-sm">Trip to Aluva</p>
                 </div>
@@ -23,7 +23,8 @@
 
         <div class="flex">
             <button
-                class="bg-green-500 w-1/2 mr-2 rounded-lg text-white font-semibold text-sm inline-flex items-center justify-center"
+                class="bg-green-500 w-1/2 mr-2 rounded-lg text-white font-semibold text-sm inline-flex items-center justify-center focus-within:"
+                @click="openWhatsapp()"
             >
                 <p class="px-2">Chat</p>
                 <svg
@@ -66,7 +67,13 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        methods: {
+            openWhatsapp() {
+                window.open('https://wa.me/+918547900780')
+            },
+        },
+    }
 </script>
 
 <style></style>

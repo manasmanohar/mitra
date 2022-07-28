@@ -1,7 +1,7 @@
 <template>
     <div v-if="listOfTravelPosts" class="m-2">
         <!-- <p>{{ postDatas }}</p> -->
-        current user:- {{ this.$route.params.currentUser }} -
+        current user:- {{ this.$route.params.currentUser }}
 
         <travelPost
             v-for="(travelPosts, index) in listOfTravelPosts"

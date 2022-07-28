@@ -65,10 +65,23 @@
     </div>
 </template>
 <script>
+    let nm
+    console.log(nm)
+
     export default {
+        name: 'BottomNav',
         methods: {
+            mounted() {
+                nm = this.$route.params.currentUser
+            },
             goToHome() {
-                this.$router.push('/home')
+                console.log('bottom nav pushed')
+                console.log(this.$route.params.currentUser)
+
+                this.$router.push({
+                    name: 'home',
+                    params: { currentUser: this.$route.params.currentUser },
+                })
             },
             goToChooseActivity() {
                 // this.$router.push('/newpost')

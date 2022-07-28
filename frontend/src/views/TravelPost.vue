@@ -5,7 +5,7 @@
             class="static top-0 bg-blue-600 w-full m-0 p-40 z-0"
         ></div>
 
-        <div class="absolute top-40 w-full max-w-lg m">
+        <div class="absolute top-40 w-full max-w-lg pb-10">
             <div class="flex flex-row m-auto items-center">
                 <svg
                     @click="goToChooseActivity()"
@@ -101,17 +101,18 @@
                             class="form-label inline-block text-gray-700 text-lg font-bold mb-2"
                             >Mode of Travel</label
                         >
+                        {{ modeOfTravel }}
                         <select
                             class="rounded-lg form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                             aria-label="Default select example"
                             v-model="modeOfTravel"
                         >
-                            <option selected>Select</option>
-                            <option value="1">Uber</option>
-                            <option value="2">Auto</option>
-                            <option value="3">Car</option>
-                            <option value="3">Bus</option>
-                            <option value="3">Bike</option>
+                            <option disabled value="">Please select one</option>
+                            <option value="Uber">Uber</option>
+                            <option value="Auto">Auto</option>
+                            <option value="Car">Car</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Bike">Bike</option>
                         </select>
                     </div>
                 </div>
@@ -184,6 +185,7 @@
                 </div>
             </form>
         </div>
+        <BottomNav />
     </div>
 </template>
 
@@ -205,9 +207,13 @@
 
 <script>
     import axios from 'axios'
+    import BottomNav from '../components/BottomNav.vue'
 
     export default {
         name: 'TravelPost',
+        components: {
+            BottomNav,
+        },
         data() {
             return {
                 userId: '',
@@ -215,7 +221,7 @@
                 description: '',
                 destination: '',
                 noParticipants: '',
-                modeOfTravel: '',
+                modeOfTravel: 'Kakkanad',
                 currentLocation: '',
                 travelMode: '',
                 dateOfTravel: '',
@@ -224,7 +230,10 @@
         },
         methods: {
             goToChooseActivity() {
-                this.$router.push('/newpost')
+                this.$router.push({
+                    name: 'newpost',
+                    params: { currentUser: this.$route.params.currentUser },
+                })
             },
             submitForm() {
                 axios

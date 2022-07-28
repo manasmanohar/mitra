@@ -86,7 +86,6 @@
             },
             gsign() {
                 googleOneTap(options, (response) => {
-                    // Send response to server
                     console.log(response)
                     console.log('hi')
                     console.log(response.sub)
@@ -103,7 +102,9 @@
                             number: document.getElementById('userPhone').value,
                         },
                     })
-                    .then((response) => console.log(response))
+                    .then((response) => {
+                        console.log(response)
+                    })
             },
             userExists(userDetails) {
                 axios

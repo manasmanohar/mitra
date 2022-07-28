@@ -67,8 +67,7 @@
 
             <h3 class="font-xs text-md mt-3">Description:</h3>
             <p class="font-md font-medium text-lg">
-                {{ travelDatas[id].dateOfTravel }}
-                ! add post desc
+                {{ travelDatas[id].description }}
             </p>
 
             <div class="mt-5 flex justify-self-auto border-gray-300">
@@ -88,7 +87,7 @@
                 </svg>
 
                 <p href="#" class="content-center mr-6 font-md font-medium">
-                    {{ travelDatas[id].travelMode }}
+                    {{ travelDatas[id].modeOfTravel }}
                 </p>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +112,6 @@
                 class="bg-blue-600 :hover:bg-blue-900 justify-center w-full text-white font-semibold rounded-lg py-2 px-5 text-sm mt-4 inline-flex items-center group"
             >
                 <p class="text-lg content-center font-medium">Join</p>
-                --
             </button>
         </div>
     </div>
