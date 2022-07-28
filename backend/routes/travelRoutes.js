@@ -7,6 +7,7 @@ router.use(cors())
 const { travelPosts } = require('../models')
 
 router.get('/', async (req, res) => {
+    const { userId } = req.body
     const listOfTravelPosts = await travelPosts.findAll()
     res.json(listOfTravelPosts)
 })

@@ -1,14 +1,14 @@
 <template>
     <div v-if="listOfTravelPosts" class="m-2">
-        <!-- <p>{{ postDatas }}</p> -->
-        current user:- {{ this.$route.params.currentUser }}
-
         <travelPost
             v-for="(travelPosts, index) in listOfTravelPosts"
             :key="travelPosts"
             :travelDatas="listOfTravelPosts"
             :id="index"
         />
+        <img :src="this.myname.picture" alt="" />
+
+        <!-- {{ myname.sub }} -->
         <!-- <travelPost :data="[{ postDatas }]" /> -->
 
         <!-- {{ postDatas[0].id }} -->
@@ -30,22 +30,27 @@
 
     export default {
         data() {
-            return { listOfTravelPosts: {}, currentUser: {} }
+            return { listOfTravelPosts: {}, myname: {} }
         },
         name: 'app',
         components: {
             travelPost,
         },
+        mounted() {
+            this.myname = JSON.parse(localStorage.getItem('userinfo'))
+            console.log('hi')
+            console.log(this.myname.sub)
+        },
         async created() {
-            axios.get('http://localhost:8080/travelPosts').then((response) => {
-                this.listOfTravelPosts = response.data
+            axios
+                .get('http://localhost:8080/travelPosts', {
+                    userId: this.myname.sub,
+                })
+                .then((response) => {
+                    this.listOfTravelPosts = response.data
 
-                console.log('in homeboard')
-
-                console.log(this.listOfTravelPosts)
-
-                // console.log(response.data[0].id)
-            })
+                    console.log(this.listOfTravelPosts)
+                })
         },
     }
 </script>

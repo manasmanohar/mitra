@@ -51,7 +51,7 @@
 
         methods: {
             locatorButtonPressed() {
-                this.spinner = true
+                // this.spinner = true
 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -70,7 +70,7 @@
                     )
                 } else {
                     // this.error = error.message
-                    this.spinner = false
+                    // this.spinner = false
                     console.log(
                         'Your browser does not support geolocation API '
                     )

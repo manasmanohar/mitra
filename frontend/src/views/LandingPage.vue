@@ -29,9 +29,9 @@
                     />
                 </div>
             </div>
-
+            //goToHome
             <button
-                @click="goToHome()"
+                @click="registerUser()"
                 class="flex flex-row px-6 py-3 mt-4 w-f font-semibold text-white bg-blue-400 border-2 rounded-md shadow outline-nonefocus:outline-none"
             >
                 Login
@@ -66,77 +66,131 @@
 
 <script>
     import axios from 'axios'
-
     import googleOneTap from 'google-one-tap'
     import jwt_decode from 'jwt-decode'
-    var userDetails = {}
     const options = {
         client_id: process.env.VUE_APP_clientId, // required
         auto_select: false, // optional
         cancel_on_tap_outside: false, // optional
         context: 'signin', // optional
     }
+    let user_id
+    let user_name
+    let user_email
+    let user_picture
+    let user_number = 9878767656
     export default {
-        methods: {
-            goToHome() {
-                this.$router.push({
-                    name: 'home',
-                    params: { currentUser: userDetails.sub },
-                })
-            },
-            gsign() {
-                googleOneTap(options, (response) => {
-                    console.log(response)
-                    console.log('hi')
-                    console.log(response.sub)
-                })
-            },
-            registerUser() {
-                axios
-                    .get('http://localhost:8080/user/registeruser', {
-                        data: {
-                            userid: userDetails.sub,
-                            name: userDetails.name,
-                            picture: userDetails.picture,
-                            email: userDetails.email,
-                            number: document.getElementById('userPhone').value,
-                        },
-                    })
-                    .then((response) => {
-                        console.log(response)
-                    })
-            },
-            userExists(userDetails) {
-                axios
-                    .get('http://localhost:8080/user/userexists', {
-                        data: { userid: userDetails.userid },
-                    })
-                    .then((response) => console.log(response))
-            },
-        },
-
         data() {
             return {
                 userDetails: '',
                 userId: '',
                 phone: '',
+                currentUser: '',
             }
         },
+        // signin
 
         mounted() {
-            const options = {
-                client_id: process.env.VUE_APP_clientId, // required
-                auto_select: false, // optional
-                cancel_on_tap_outside: false, // optional
-                context: 'signin', // optional
-            }
             googleOneTap(options, (response) => {
-                // Send response to server
-                userDetails = jwt_decode(response.credential)
-                console.log(userDetails)
-                console.log('hi')
-                // this.verifyUser(userDetails)
+                let jwtresponse = jwt_decode(response.credential)
+                console.log(jwtresponse)
+                if (jwtresponse) {
+                    localStorage.setItem(
+                        'user_id',
+                        JSON.stringify(jwtresponse.sub)
+                    )
+                    localStorage.setItem(
+                        'name',
+                        JSON.stringify(jwtresponse.name)
+                    )
+                    localStorage.setItem(
+                        'email',
+                        JSON.stringify(jwtresponse.email)
+                    )
+                    localStorage.setItem(
+                        'picture',
+                        JSON.stringify(jwtresponse.picture)
+                    )
+                    localStorage.setItem(
+                        'email',
+                        JSON.stringify(jwtresponse.email)
+                    )
+                }
+                console.log('hihi')
+
+                console.log(user_picture)
+
+                this.checkuserExists()
+
+                // this.$router.push({ name: 'home' })
+                // this.$router.push({ name: 'home' })
+                // this.$router.push({ name: 'home' })
             })
+
+            // user_id = JSON.parse(localStorage.getItem('userid'))
+            // user_name = JSON.parse(localStorage.getItem('name'))
+            // user_email = JSON.parse(localStorage.getItem('email'))
+            // user_picture = JSON.parse(localStorage.getItem)('picture')
+
+            console.log('onetap')
+            console.log('user_id')
+
+            console.log(this.user_id)
+            console.log(user_id)
+
+            if (user_id) {
+                this.$router.push({ name: 'home' })
+            } else this.checkuserExists()
+        },
+
+        methods: {
+            // router
+            goToHome() {
+                this.$router.push({
+                    name: 'home',
+                    // params: { currentUser: userDetails.sub },
+                })
+            },
+            // backend api calls
+            checkuserExists(registerUser) {
+                console.log('userexists')
+                user_id = JSON.parse(localStorage.getItem('user_id'))
+                console.log(user_id)
+
+                axios
+                    .post('http://localhost:8080/users/checkifuserexists', {
+                        userId: user_id,
+
+                        // removed data{}
+                    })
+                    .then((response) => {
+                        console.log(response)
+                        if (!response) {
+                            registerUser()
+                        }
+                    })
+            },
+
+            registerUser() {
+                console.log('register invoked')
+                user_id = JSON.parse(localStorage.getItem('user_id'))
+
+                user_name = JSON.parse(localStorage.getItem('name'))
+                user_email = JSON.parse(localStorage.getItem('email'))
+                user_picture = JSON.parse(localStorage.getItem('picture'))
+                user_number = 9878767656
+                axios
+                    .post('http://localhost:8080/users/registeruser', {
+                        user_id,
+                        user_name,
+                        user_picture,
+                        user_email,
+                        user_number,
+                    })
+                    .then((response) => {
+                        console.log(response)
+                    })
+            },
         },
     }
 </script>

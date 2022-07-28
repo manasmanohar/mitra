@@ -65,15 +65,10 @@
     </div>
 </template>
 <script>
-    let nm
-    console.log(nm)
-
     export default {
         name: 'BottomNav',
         methods: {
-            mounted() {
-                nm = this.$route.params.currentUser
-            },
+            mounted() {},
             goToHome() {
                 console.log('bottom nav pushed')
                 console.log(this.$route.params.currentUser)

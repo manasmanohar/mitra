@@ -1,14 +1,11 @@
 const express = require('express')
 const router = express.Router()
-
-const cors = require('cors')
-router.use(cors())
-
 const { Users } = require('../models')
 
 //get all users
 router.get('/', async (req, res) => {
     try {
+        console.log(req.body)
         const listOfUsers = await Users.findAll()
         res.json(listOfUsers)
         console.log(listOfUsers)
@@ -18,34 +15,24 @@ router.get('/', async (req, res) => {
 })
 
 //check if user exists
-router.get('/verifyuser', async (req, res) => {
-    // const { userId, phone, name, email } = req.body
-    // console.log(name)
-
-    // try {
-    //     const userExists = await Users.findAll({
-    //         where: {
-    //             userId,
-    //         },
-    //     })
-    // } catch (err) {
-    //     console.log(err)
-    // }
-
-    const { user } = req.body
+router.post('/checkifuserexists', async (req, res) => {
+    const { userId } = req.body
+    console.log(req.body)
 
     try {
-        const dVerifyUser = await Users.findAll({
+        const dVerifyUser = await Users.findOne({
             where: {
-                userId: user,
+                userId: userId,
             },
         })
         if (dVerifyUser) {
             return res.json(dVerifyUser)
         } else {
-            return res(404)
+            res.json('not exists')
         }
     } catch (err) {
+        console.log('err in response')
+
         console.log(err)
     }
 })
@@ -53,17 +40,20 @@ router.get('/verifyuser', async (req, res) => {
 // create new user
 
 router.post('/registeruser', async (req, res) => {
-    const { userId, userName, picture, email, number } = req.body
+    console.log(req.body)
+    const { user_id, user_name, user_picture, user_email, user_number } =
+        req.body
+    console.log(user_id)
 
     try {
-        const newUser = await Users.create({
-            userId: userId,
-            userName: userName,
-            picture: picture,
-            email: email,
-            phone: number,
+        const user = await Users.create({
+            userId: user_id,
+            userName: user_name,
+            picture: user_picture,
+            email: user_email,
+            phone: user_number,
         })
-        return res.json(newUser)
+        return res.json(user)
     } catch (err) {
         console.log(err)
     }
