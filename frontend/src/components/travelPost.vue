@@ -3,6 +3,8 @@
         id="travelPostWrapper"
         class="flex w-full items-center justify-center mb-8"
     >
+        {{ travelDatas[id][id].title }}
+
         <div
             class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md travelPostbg"
             v-bind:value="travelDatas[id].title"

@@ -1,12 +1,15 @@
 <template>
     <div v-if="listOfTravelPosts" class="m-2">
+        {{ listOfTravelPosts[0] }}
         <travelPost
             v-for="(travelPosts, index) in listOfTravelPosts"
             :key="travelPosts"
             :travelDatas="listOfTravelPosts"
             :id="index"
         />
+
         <img :src="pp" alt="" />
+        {{ listOfTravelPosts }}
 
         <!-- {{ myname.sub }} -->
         <!-- <travelPost :data="[{ postDatas }]" /> -->
@@ -23,7 +26,6 @@
 <script>
     import travelPost from './travelPost.vue'
     import axios from 'axios'
-
     // import helpPost from './helpPost'
     // import eventPost from './helpPost'
     // import userInterest from './userInterest'
@@ -31,7 +33,7 @@
     export default {
         data() {
             return {
-                listOfTravelPosts: {},
+                listOfTravelPosts: '',
                 myname: {},
                 pp: '',
             }

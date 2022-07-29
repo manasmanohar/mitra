@@ -20,10 +20,12 @@ router.post('/', async (req, res) => {
     // console.log(`currentLocation:${currentLocation}`)
 
     try {
-        let sql = `SELECT DISTINCT Users.userId, Users.picture, Users.phone, travelposts.title ,travelposts.description FROM Users JOIN travelposts ON Users.userId = travelposts.userId AND Users.userId != ${userId}`
+        let sql = `SELECT DISTINCT Users.userName, Users.picture, Users.phone, travelposts.title, travelposts.description, travelposts.dateOfTravel, travelposts.timeOfTravel, travelposts.noParticipants,travelposts.modeOfTravel FROM Users JOIN travelposts ON Users.userId = !${userId}`
         console.log(sql)
-        const listOfTravelposts = await sequelize.query(sql)
-        res.json(listOfTravelposts)
+        const listOfTravelposts = await sequelize.query(sql, {})
+        console.log(listOfTravelposts)
+
+        res.send(listOfTravelposts)
     } catch (err) {
         console.log(err)
     }

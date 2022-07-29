@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const { Users } = require('../models')
-
+const cors = require('cors')
+router.use(cors())
 //get all users
 router.get('/', async (req, res) => {
     try {

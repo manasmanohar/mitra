@@ -3,7 +3,7 @@
         id="PostSelector"
         class="bg-white sticky top-20 z-50 w-full flex flex-row justify-between p-3"
     >
-        <button
+        <!-- <button
             v-bind:class="{
                 ' active': !clicked1,
             }"
@@ -11,9 +11,9 @@
             class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-blue-500 rounded-lg focus:shadow-outline"
         >
             Travel
-        </button>
+        </button> -->
 
-        <button
+        <!-- <button
             v-bind:class="{
                 ' active': !clicked2,
             }"
@@ -37,7 +37,7 @@
             class="h-10 px-5 ml-2 text-blue-600 transition-colors duration-150 border border-blue-500 rounded-lg focus:shadow-outline"
         >
             Interest
-        </button>
+        </button> -->
     </div>
 </template>
 
