@@ -1,14 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const Sequelize = require('sequelize')
+const cors = require('cors')
+router.use(cors())
 
+const { travelPosts } = require('../models')
 const sequelize = new Sequelize('test', 'root', 'manasmitra@098', {
     host: 'localhost',
     dialect: 'mysql',
 })
 // const { Op } = require('sequelize')
 
-const { travelposts } = require('../models/travelPosts')
 const { Users } = require('../models/Users')
 
 router.post('/', async (req, res) => {
@@ -59,7 +61,7 @@ router.post('/addtravelpost', async (req, res) => {
     console.log(req.body)
 
     try {
-        const newpost = await travelposts.create({
+        const newpost = await travelPosts.create({
             userId,
             title,
             description,
