@@ -8,11 +8,30 @@
             class="mx-auto h-20 w-49"
             alt="mitra_logo"
         />
+        <!-- hi {{ user_picture }}
+        <img :src="user_picture" class="mx-auto h-20 w-49 ml-0" alt="userdp" /> -->
     </div>
 </template>
 
 <script>
-    export default {}
+    let user_picture
+    // console.log(this.user_picture)
+    export default {
+        data() {
+            user_picture = JSON.parse(localStorage.getItem('picture'))
+            console.log(user_picture)
+            return {
+                user_picture: this.user_picture,
+            }
+        },
+        mounted() {
+            // user_picture = JSON.parse(localStorage.getItem('picture'))
+            // console.log(user_picture)
+        },
+        methods: {
+            getImgUrl() {},
+        },
+    }
 </script>
 
 <style></style>

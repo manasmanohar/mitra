@@ -243,7 +243,6 @@
 
                 this.user_id = JSON.parse(localStorage.getItem('user_id'))
                 console.log('hi')
-
                 console.log(user_id)
                 console.log(user_location)
                 axios

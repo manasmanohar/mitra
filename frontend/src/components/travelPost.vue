@@ -4,7 +4,7 @@
         class="flex w-full items-center justify-center mb-8"
     >
         <div
-            class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md"
+            class="bg-blue-200 rounded-lg p-5 flex-1 shadow-md travelPostbg"
             v-bind:value="travelDatas[id].title"
         >
             <h2 class="font-bold text-3xl mt-2 mb-3 border-blue-500">
@@ -126,4 +126,8 @@
     }
 </script>
 
-<style></style>
+<style>
+    .travelPostbg {
+        backdrop-filter: blur(80px) !important;
+    }
+</style>
