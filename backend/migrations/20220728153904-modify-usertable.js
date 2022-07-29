@@ -4,7 +4,7 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         queryInterface.changeColumn('Users', 'userId', {
             type: DataTypes.FLOAT,
-            defaultValue: 3.14,
+
             allowNull: false,
         })
 
