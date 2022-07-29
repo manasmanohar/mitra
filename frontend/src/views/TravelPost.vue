@@ -244,6 +244,7 @@
                 this.user_id = JSON.parse(localStorage.getItem('user_id'))
                 console.log('hi')
                 console.log(user_id)
+                console.log(this.modeOfTravel.value)
                 console.log(user_location)
                 axios
                     .post('http://localhost:8080/travelPosts/addtravelpost', {
@@ -252,9 +253,8 @@
                         description: this.description,
                         destination: this.destination,
                         noParticipants: this.noParticipants,
-                        modeOfTravel: this.modeOfTravel,
                         currentLocation: this.user_location,
-                        travelMode: this.travelMode,
+                        travelMode: this.modeOfTravel,
                         dateOfTravel: this.dateOfTravel,
                         timeOfTravel: this.timeOfTravel,
                     })

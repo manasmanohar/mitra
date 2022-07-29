@@ -46,11 +46,13 @@
         async created() {
             let user = JSON.parse(localStorage.getItem('user_id'))
             console.log(`fetching ${user} posts`)
+            let userLoc = JSON.parse(localStorage.getItem('user_location'))
 
             console.log(user)
             axios
                 .post('http://localhost:8080/travelposts', {
                     userId: user,
+                    currentLocation: userLoc,
                 })
                 .then((response) => {
                     this.listOfTravelPosts = response.data
