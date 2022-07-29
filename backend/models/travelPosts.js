@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-
         dateOfTravel: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -37,6 +36,18 @@ module.exports = (sequelize, DataTypes) => {
         timeOfTravel: {
             type: DataTypes.TIME,
             allowNull: false,
+        },
+        status: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
+        joinedUsers: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        userQueue: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
     })
 
