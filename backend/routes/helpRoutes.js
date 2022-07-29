@@ -8,7 +8,7 @@ const { helpPosts } = require('../models')
 
 router.get('/', async (req, res) => {
     const listOfHelpPosts = await helpPosts.findAll()
-    res.json(listOfHelpRoutes)
+    // res.json(listOfHelpRoutes)
 })
 
 router.post('/helpPostsRoutes', async (req, res) => {
